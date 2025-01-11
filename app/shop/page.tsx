@@ -1,6 +1,6 @@
+
+"useclient";
 import Link from "next/link";
-import cart from "@/app/cart/page"
-import HeroSection from "@/app/components/herosection";
 import Header from "@/app/components/header";
 import Footer from "@/app/components/footer"
 
@@ -11,15 +11,13 @@ async function fetchProducts() {
   return res.json();
 }
 
-export default async function Home() {
+export default async function shop() {
   const products = await fetchProducts();
 
   return (
        <div>
        <Header/>
-       <div>
-       <HeroSection/>
-       </div>
+       
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {products.map((product: any) => (
         <div
@@ -35,7 +33,7 @@ export default async function Home() {
           <p className="text-gray-700">${product.price}</p>
           <Link
             href={`/product/${product.id}`}
-            className="block mt-4 text-center bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+            className="block mt-4 text-center bg-yellow-500 text-white py-2 rounded hover:bg-black"
           >
             View Details
           </Link>
